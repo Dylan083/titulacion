@@ -30,13 +30,14 @@ public class registroTitulacion extends javax.swing.JFrame {
     
     private void mostrarDatos(){
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("IdTitulacion");
+        modelo.addColumn("Id");
         modelo.addColumn("Nombre");
         modelo.addColumn("Especialidad");
+        modelo.addColumn("Matricula");
+        modelo.addColumn("Tipo de Titulacion");
         tblregistroT.setModel(modelo);
-        String consultasql = "SELECT * FROM registrot";
-        String data[] = new String[3];
-        
+        String registro = "SELECT * FROM registrot";
+        String data[] = new String[5];
         Statement st;
         
         //try {

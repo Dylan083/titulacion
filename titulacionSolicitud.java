@@ -68,6 +68,11 @@ public class titulacionSolicitud extends javax.swing.JFrame {
         chbcbachillerato.setText("Certificado de Bachillerato");
 
         btnSeleccionarTodo.setText("Seleccionar  todo");
+        btnSeleccionarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarTodoActionPerformed(evt);
+            }
+        });
 
         chbacta.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         chbacta.setText("Acta de Nacimiento");
@@ -233,6 +238,11 @@ public class titulacionSolicitud extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSeleccionarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarTodoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSeleccionarTodoActionPerformed
 
     /**
      * @param args the command line arguments
