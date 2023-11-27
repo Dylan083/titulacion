@@ -67,11 +67,6 @@ public class acceso extends javax.swing.JFrame {
 
         btnaceptar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         btnaceptar.setText("Aceptar");
-        btnaceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnaceptarActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
 
@@ -173,21 +168,10 @@ public class acceso extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpasswordActionPerformed
 
-    private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
-        // TODO add your handling code here:
-        menu menup = new menu();
-        this.setVisible(false);
-        menup.setVisible(true);
-    }//GEN-LAST:event_btnaceptarActionPerformed
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        //lino4
-        //sfakfkasf
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

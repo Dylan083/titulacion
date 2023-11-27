@@ -8,8 +8,16 @@ package serviciosytitulacion;
  *
  * @author 22PROGB31
  */
+import javax.swing.table.DefaultTableModel;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 public class titulacionSolicitud extends javax.swing.JFrame {
-//jksafhj4124
+
     /**
      * Creates new form titulacionSolicitud
      */
@@ -33,7 +41,7 @@ public class titulacionSolicitud extends javax.swing.JFrame {
         txtnombre = new javax.swing.JTextField();
         txtespecialidad = new javax.swing.JTextField();
         txtmatricula = new javax.swing.JTextField();
-        chbcsecunadria = new javax.swing.JCheckBox();
+        chbcsecundaria = new javax.swing.JCheckBox();
         chbcbachillerato = new javax.swing.JCheckBox();
         btnSeleccionarTodo = new javax.swing.JButton();
         chbacta = new javax.swing.JCheckBox();
@@ -61,8 +69,8 @@ public class titulacionSolicitud extends javax.swing.JFrame {
 
         jLabel5.setText("Matricula:");
 
-        chbcsecunadria.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        chbcsecunadria.setText("Certificado de Secundaria");
+        chbcsecundaria.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        chbcsecundaria.setText("Certificado de Secundaria");
 
         chbcbachillerato.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         chbcbachillerato.setText("Certificado de Bachillerato");
@@ -99,6 +107,11 @@ public class titulacionSolicitud extends javax.swing.JFrame {
         chbfotostitulo.setText("3 fotos tamaño titulo");
 
         btnaceptar.setText("Aceptar");
+        btnaceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaceptarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel1.setText("acreditacion de practicas");
@@ -126,7 +139,12 @@ public class titulacionSolicitud extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        btnregresar.setText("Regresar");
+        btnregresar.setText("regresar");
+        btnregresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,7 +168,7 @@ public class titulacionSolicitud extends javax.swing.JFrame {
                                     .addComponent(txtmatricula))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSeleccionarTodo)
-                        .addGap(170, 170, 170))
+                        .addGap(31, 31, 31))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +179,7 @@ public class titulacionSolicitud extends javax.swing.JFrame {
                             .addComponent(chbcacreditacion)
                             .addComponent(chbacta)
                             .addComponent(chbcbachillerato)
-                            .addComponent(chbcsecunadria))
+                            .addComponent(chbcsecundaria))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(58, 58, 58)
@@ -171,13 +189,13 @@ public class titulacionSolicitud extends javax.swing.JFrame {
                                     .addComponent(chbcurp3)
                                     .addComponent(chbfotostitulo)
                                     .addComponent(chbconstanciasec))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(51, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnregresar)
                                     .addComponent(btnaceptar))
-                                .addGap(129, 129, 129))))))
+                                .addGap(18, 18, 18))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +217,7 @@ public class titulacionSolicitud extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chbfotosdiploma)
-                    .addComponent(chbcsecunadria))
+                    .addComponent(chbcsecundaria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chbconstanciasec)
@@ -229,7 +247,9 @@ public class titulacionSolicitud extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,10 +259,40 @@ public class titulacionSolicitud extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
+        // TODO add your handling code here:
+        conexion con = new conexion();
+        Connection cn = con.conectar();
+        try{
+            PreparedStatement ps = cn.prepareStatement("INSERT INTO registrot (nombre, especialidad, matricula) VALUES (?,?,?)");
+            ps.setString(1, txtnombre.getText()); 
+            ps.setString(2, txtespecialidad.getText()); 
+            ps.setString(3, txtmatricula.getText()); 
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Solicitud registrada con exito");
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al registrar solicitud"+e);
+        }
+    }//GEN-LAST:event_btnaceptarActionPerformed
+
     private void btnSeleccionarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarTodoActionPerformed
         // TODO add your handling code here:
-        
+        chbcsecundaria.setSelected(true);
+        chbacreditacionservicio.setSelected(true);
+        chbacta.setSelected(true);
+        chbcacreditacion.setSelected(true);
+        chbcbachillerato.setSelected(true);
+        chbconstanciaComp.setSelected(true);
+        chbconstanciasec.setSelected(true);
+        chbcurp3.setSelected(true);
+        chbfotosdiploma.setSelected(true);
+        chbfotostitulo.setSelected(true);
     }//GEN-LAST:event_btnSeleccionarTodoActionPerformed
+
+    private void btnregresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnregresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,7 +339,7 @@ public class titulacionSolicitud extends javax.swing.JFrame {
     private javax.swing.JCheckBox chbcbachillerato;
     private javax.swing.JCheckBox chbconstanciaComp;
     private javax.swing.JCheckBox chbconstanciasec;
-    private javax.swing.JCheckBox chbcsecunadria;
+    private javax.swing.JCheckBox chbcsecundaria;
     private javax.swing.JCheckBox chbcurp3;
     private javax.swing.JCheckBox chbfotosdiploma;
     private javax.swing.JCheckBox chbfotostitulo;

@@ -23,7 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="524" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -68,7 +71,7 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnSeleccionarTodo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -81,7 +84,7 @@
                               <Component id="chbcacreditacion" min="-2" max="-2" attributes="0"/>
                               <Component id="chbacta" min="-2" max="-2" attributes="0"/>
                               <Component id="chbcbachillerato" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="chbcsecunadria" min="-2" max="-2" attributes="0"/>
+                              <Component id="chbcsecundaria" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -93,15 +96,15 @@
                                       <Component id="chbfotostitulo" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="chbconstanciasec" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="51" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="btnregresar" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnaceptar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -132,7 +135,7 @@
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="chbfotosdiploma" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbcsecunadria" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chbcsecundaria" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -188,7 +191,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtmatricula">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chbcsecunadria">
+        <Component class="javax.swing.JCheckBox" name="chbcsecundaria">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="12" style="2"/>
@@ -280,6 +283,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnaceptarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -332,8 +338,11 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnregresar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Regresar"/>
+            <Property name="text" type="java.lang.String" value="regresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregresarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
