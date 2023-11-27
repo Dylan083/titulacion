@@ -28,34 +28,7 @@ public class registroTitulacion extends javax.swing.JFrame {
         
     }
     
-    private void mostrarDatos(){
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Id");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Especialidad");
-        modelo.addColumn("Matricula");
-        modelo.addColumn("Tipo de Titulacion");
-        tblregistroT.setModel(modelo);
-        String registro = "SELECT * FROM registrot";
-        String data[] = new String[5];
-        Statement st;
-        
-        //try {
-           //st = cn.createStatement();
-           //ResultSet rs = st.executeQuery(consultasql);
-           
-           //while (rs.next()){
-               //data[0] = rs.getString(1);
-               //data[1] = rs.getString(2);
-               //data[2] = rs.getString(3);
-               //modelo.addRow(data);
-           //}
-           
-        //} catch (SQLException e){
-            //System.out.println("ERROR: " + e);
-        //}
-        
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
